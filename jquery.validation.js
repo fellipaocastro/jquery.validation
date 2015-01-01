@@ -5,12 +5,12 @@
 	Url:		http://www.consulenza-web.com/jquery-validation-plugin.dc-13.html
 	
 	Questo plugin permette di filtrare i tasti accettati da un campo di testo in un form.
-	Ad esempio θ possibile accettare solo lettere o solo numeri o controlli piω complessi.
+	Ad esempio Γ¨ possibile accettare solo lettere o solo numeri o controlli piΓΉ complessi.
 	I filtri vengono applicati direttamente durante l'inserimento del testo.
 	Viene inoltre eseguito un controllo al rilascio del campo per effettuare una validazione
 	completa in base alle regole impostate.
 	E' possibile associare al controllo delle funzioni callback per intercettare errori o
-	gestire eventi quando la validazione θ completa.
+	gestire eventi quando la validazione Γ¨ completa.
 	
 	Puoi utilizzare liberamente questo script senza alcun tipo di restrizione.
 	Se applichi delle modifiche o se realizzi delle validazioni aggiuntive sei pregato
@@ -21,8 +21,8 @@
 	Ti sarei inoltre molto grato se mettessi un link al mio sito nelle pagine in cui
 	viene utilizzato questo plugin:
 		http://www.consulenza-web.com
-	Non θ una cosa obbligatoria, ma permetterebbe a molta piω gente di trovare questo
-	plugin (e magari altri che svilupperς) ed utilizzarli per rendere piω facile la
+	Non Γ¨ una cosa obbligatoria, ma permetterebbe a molta piΓΉ gente di trovare questo
+	plugin (e magari altri che svilupperΓ²) ed utilizzarli per rendere piΓΉ facile la
 	vita dei webmaster.
 	
 	Grazie per aver letto queste informazioni.
@@ -37,17 +37,17 @@
 			  	predefinire elencate qui di seguito.
 					int:			[09,.]
 					lower:			[a-z]
-					lowers:			[a-zςΰωθιμ]
+					lowers:			[a-zΓ²Γ ΓΉΓ¨Γ©Γ¬]
 					upper:			[A-Z]
-					uppers:			[A-Zςΰωθιμ]
+					uppers:			[A-ZΓ²Γ ΓΉΓ¨Γ©Γ¬]
 					alpha:			[a-zA-Z]
-					alphas:			[a-zA-Zςΰωθιμ]
+					alphas:			[a-zA-ZΓ²Γ ΓΉΓ¨Γ©Γ¬]
 					lowerInt:		[a-z0-9]
-					lowersInt:		[a-z0-9ςΰωθιμ]
+					lowersInt:		[a-z0-9Γ²Γ ΓΉΓ¨Γ©Γ¬]
 					upperInt:		[A-Z0-9]
-					uppersInt:		[A-Z0-9ςΰωθιμ]
+					uppersInt:		[A-Z0-9Γ²Γ ΓΉΓ¨Γ©Γ¬]
 					alphaInt:		[a-zA-Z0-9]
-					alphasInt:		[a-zA-Z0-9ςΰωθιμ]
+					alphasInt:		[a-zA-Z0-9Γ²Γ ΓΉΓ¨Γ©Γ¬]
 					nick:			[a-zA-Z0-9-_ .@]
 					
 		add: 		definire una stringa di caratteri accettati oltre alla famiglia principale.		
@@ -80,13 +80,13 @@
 
 // type definisce il tipo di validazione da effettuare.
 jQuery.fn.validation = function( cfg ) {
-	// Preimpostazione per la variabile in input che θ opzionale.
+	// Preimpostazione per la variabile in input che Γ¨ opzionale.
 	cfg					= cfg || {};
 	
 	// Preimpostazioni delle opzioni di configurazione.
 	cfg.type 			= cfg.type || "alphasInt";		// Famiglia di validazione.
 	cfg.add				= cfg.add || "";				// Lista di caratteri eccezioni. Stringa
-	cfg.empty			= cfg.empty || "si";			// Puς contenere il valore nullo?
+	cfg.empty			= cfg.empty || "si";			// PuΓ² contenere il valore nullo?
 	cfg.ctrl			= cfg.ctrl || "si";				// Permette le operazioni di copia/taglia/incolla
 	cfg.onError			= typeof cfg.onError == "function" ? cfg.onError : function(){};
 	cfg.onDone			= typeof cfg.onDone == "function" ? cfg.onDone : function(){};
@@ -150,7 +150,7 @@ jQuery.fn.validation = function( cfg ) {
 		// Validazione aggiuntiva per il controllo MAIL.
 		// Utilizzo una funzione che esegue una regexp su tutto il contenuto del campo.
 		// Evito il controllo in caso di valore vuoto in quanto questa casistica viene
-		// Giΰ considerata prima.
+		// GiΓ  considerata prima.
 		if ( cfg.type == "mail" && this.value.length > 0 ) { valid = checkEmail(this.value); }
 		
 		
@@ -172,17 +172,17 @@ jQuery.fn.validation = function( cfg ) {
 		// Inizia la selezione e l'applicazione dei tipi di validazione previsti:
 		if 		( cfg.type == 'int' )			return keyN(key);					// [0-9]
 		else if ( cfg.type == 'lower' )			return keyL(key);					// [a-z]
-		else if ( cfg.type == 'lowers' )		return ( keyL(key) || keyAdd(key, "ςΰωθιμ") );	// [a-zςΰωθιμ]
+		else if ( cfg.type == 'lowers' )		return ( keyL(key) || keyAdd(key, "Γ²Γ ΓΉΓ¨Γ©Γ¬") );	// [a-zΓ²Γ ΓΉΓ¨Γ©Γ¬]
 		else if ( cfg.type == 'upper' )			return keyU(key);					// [A-Z]
-		else if ( cfg.type == 'uppers' )		return ( keyU(key) || keyAdd(key, "ςΰωθιμ") );	// [A-Zςΰωθιμ]
+		else if ( cfg.type == 'uppers' )		return ( keyU(key) || keyAdd(key, "Γ²Γ ΓΉΓ¨Γ©Γ¬") );	// [A-ZΓ²Γ ΓΉΓ¨Γ©Γ¬]
 		else if ( cfg.type == 'alpha' )			return ( keyL(key) || keyU(key) );	// [a-zA-Z]
-		else if ( cfg.type == 'alphas' )		return ( keyL(key) || keyU(key) || keyAdd(key, "ςΰωθιμ") );	// [a-zA-Zςΰωθιμ]
+		else if ( cfg.type == 'alphas' )		return ( keyL(key) || keyU(key) || keyAdd(key, "Γ²Γ ΓΉΓ¨Γ©Γ¬") );	// [a-zA-ZΓ²Γ ΓΉΓ¨Γ©Γ¬]
 		else if ( cfg.type == 'lowerInt' )		return ( keyL(key) || keyN(key) );	// [a-z0-9]
-		else if ( cfg.type == 'lowersInt' )		return ( keyL(key) || keyN(key) || keyAdd(key, "ςΰωθιμ") );	// [a-z0-9ςΰωθιμ]
+		else if ( cfg.type == 'lowersInt' )		return ( keyL(key) || keyN(key) || keyAdd(key, "Γ²Γ ΓΉΓ¨Γ©Γ¬") );	// [a-z0-9Γ²Γ ΓΉΓ¨Γ©Γ¬]
 		else if ( cfg.type == 'upperInt' )		return ( keyU(key) || keyN(key) );	// [A-Z0-9]
-		else if ( cfg.type == 'uppersInt' )		return ( keyU(key) || keyN(key) || keyAdd(key, "ςΰωθιμ") );	// [A-Z0-9ςΰωθιμ]
+		else if ( cfg.type == 'uppersInt' )		return ( keyU(key) || keyN(key) || keyAdd(key, "Γ²Γ ΓΉΓ¨Γ©Γ¬") );	// [A-Z0-9Γ²Γ ΓΉΓ¨Γ©Γ¬]
 		else if	( cfg.type == 'alphaInt')		return ( keyL(key) || keyU(key) || keyN(key) );	// [a-zA-Z0-9]
-		else if	( cfg.type == 'alphasInt')		return ( keyL(key) || keyU(key) || keyN(key) || keyAdd(key, "ςΰωθιμ") );	// [a-zA-Z0-9ςΰωθιμ]
+		else if	( cfg.type == 'alphasInt')		return ( keyL(key) || keyU(key) || keyN(key) || keyAdd(key, "Γ²Γ ΓΉΓ¨Γ©Γ¬") );	// [a-zA-Z0-9Γ²Γ ΓΉΓ¨Γ©Γ¬]
 		else if ( cfg.type == 'nick' )			return ( keyL(key) || keyU(key) || keyN(key) || keyAdd(key, "-_ .@") ); // [a-zA-Z0-9-_ .@]
 		else if ( cfg.type == 'mail' )			return keyMail(key); // Validazione mail.
 	} // Fine "validateChar()" ____________________________________________________________________
@@ -195,7 +195,7 @@ jQuery.fn.validation = function( cfg ) {
 		else if ( e.which ) return e.which;
 	} // Fine "getKeyCode()" ______________________________________________________________________
 	
-	// Prende in input un codice di carattere ed una stringa. Se il carattere θ presente in tale
+	// Prende in input un codice di carattere ed una stringa. Se il carattere Γ¨ presente in tale
 	// stringa restituisce "true". Il confronto viene eseguito sul codice numerico del carattere.
 	// Viene utilizzata in "keypress" per gestire delle eccezioni alle regole.
 	function keyAdd(key, add) {
@@ -227,30 +227,30 @@ jQuery.fn.validation = function( cfg ) {
 	} // Fine "keyL()" ____________________________________________________________________________
 	
 	// Validazione formale su inserimento di indirizzi e-mail. Viene effettuato un controllo sui
-	// caratteri accettati ed un ulteriore controllo sul "quando" θ possibile utilizzare determinati
-	// catatteri. Ed non θ possibile utilizzare 2 volte la "@".
+	// caratteri accettati ed un ulteriore controllo sul "quando" Γ¨ possibile utilizzare determinati
+	// catatteri. Ed non Γ¨ possibile utilizzare 2 volte la "@".
 	function keyMail(k) {
 		// Controllo formale sul range di caratteri accettati.
 		if ( keyL(k) || keyU(k) || keyN(k) || keyAdd(k, "-_.@") ) {			
 	
-			// Non si puς iniziare con un carattere speciale:
+			// Non si puΓ² iniziare con un carattere speciale:
 			//       .          -          _          @
 			if ( ( k == 46 || k == 45 || k == 95 || k == 64 ) && cfg.OBJ.value.length == 0 ) return false;
 			
-			// Non si puς iniziare con un numero:
+			// Non si puΓ² iniziare con un numero:
 //			if ( keyN(k) && cfg.OBJ.value.length == 0 ) return false;
 			
-			// Non puς esserci un carattere speciale dopo un punto:
+			// Non puΓ² esserci un carattere speciale dopo un punto:
 			if ( ( k == 46 || k == 45 || k == 95 || k == 64 ) && cfg.OBJ.value[cfg.OBJ.value.length-1] == "." ) return false;
 			
-			// Non puς esserci un punto o una chiocciola dopo un carattere speciale:
+			// Non puΓ² esserci un punto o una chiocciola dopo un carattere speciale:
 			cb = cfg.OBJ.value[cfg.OBJ.value.length-1];
 			if ( ( k == 46 || k == 64 ) && ( cb == "-" || cb == "_" || cb == "@" || cb == "." ) ) return false;
 			
 			// Devono esserci almeno 3 caratteri per poter inserire la @:
 			if ( k == 64 && cfg.OBJ.value.length < 3 ) return false;
 			
-			// Controlli quando θ giΰ presente una chiocciola (@)
+			// Controlli quando Γ¨ giΓ  presente una chiocciola (@)
 			if ( cfg.OBJ.value.indexOf("@") != -1 ) {
 				// Non sono ammesse altre chiocciole oltre alla prima!
 				if ( k == 64 ) return false;
@@ -258,12 +258,12 @@ jQuery.fn.validation = function( cfg ) {
 				// Calcolo l'offset della stringa dopo la chiocciola per la gestione dei caratteri speciali.
 				offSet = cfg.OBJ.value.length - cfg.OBJ.value.indexOf("@");
 				
-				// Non si puς iniziare con un carattere speciale appena dopo la chiocciola:
+				// Non si puΓ² iniziare con un carattere speciale appena dopo la chiocciola:
 				if ( ( k == 46 || k == 45 || k == 95 ) && offSet == 1 ) return false;
 				
 				// Se si digita il punto "offSet" deve essere almeno di 4 caratteri:
 				if ( k == 46 && offSet < 3 ) return false;
-			} // Fine controlli quando θ giΰ presente una chiocciola.
+			} // Fine controlli quando Γ¨ giΓ  presente una chiocciola.
 			
 		} else return false;
 	} // Fine "keyMail()" _________________________________________________________________________
@@ -278,5 +278,3 @@ jQuery.fn.validation = function( cfg ) {
 		if (/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test(toCheck)) return true; else return false;
 	} // Fine "checkEmail()" ______________________________________________________________________
 }
-
-
